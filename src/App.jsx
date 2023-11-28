@@ -8,7 +8,7 @@ import PokeInfo from './components/PokeInfo'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element = {<Root/>}>
-    <Route path="/" element = {<PokeList />} />
+    <Route index element = {<PokeList />} />
     <Route path="/pokemon/:id" element = {<PokeDetail />}/>
     <Route path="/pokemon/:id/:info" element = {<PokeInfo />} />
   </Route>

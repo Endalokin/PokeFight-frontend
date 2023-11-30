@@ -6,7 +6,7 @@ export default function Root() {
         <>
             <header><h1>PokeFight</h1></header>
             <main>
-                <Outlet />
+                <Outlet /> 
             </main>
             <footer>Footer this is</footer>
         </>

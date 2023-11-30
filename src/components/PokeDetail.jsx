@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-export default function PokeDetail() {
+export default function PokeDetail({detailPokemon}) {
 
     const {id} = useParams()
 

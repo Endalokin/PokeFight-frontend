@@ -8,7 +8,7 @@ export default function FilterSlideOver({showOverlay, toggleFilterOverlay, setPo
             <div className="absolute inset-0 overflow-hidden">
                 <div className="pointer-events-none fixed inset-y-20 right-0 flex max-w-full pl-10">
                     <div className="pointer-events-auto w-screen max-w-md">
-                        <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                        <div className="flex h-full flex-col bg-white shadow-xl">
                             <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                 <div className="flex items-start justify-between">
                                     <h2 className="text-lg font-medium text-gray-900" id="slide-over-title">Filter</h2>

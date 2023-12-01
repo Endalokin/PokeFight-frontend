@@ -1,24 +1,21 @@
 import React from 'react'
-import { pokemons } from '../../../utils/pokemons'
 
-export default function TypFilter({ setPokeList }) {
+export default function TypFilter({ setPokeList, pokeList, allPokemons, setMaxEntry }) {
 
     const pokeTypes = [
         "Fire",
-        "Plant",
-        "Water",
-        "Crazy"
+        "Water"
     ]
-
     function filterPokemons(e) {
-        setPokeList(pokemons.filter(p => {
-            return p.type == e.target.id
+        setPokeList(pokeList.filter(p => {
+            return p.type[0] == e.target.id
         }))
+        setMaxEntry(12)
     }
-
     function clearFilters(e) {
         e.preventDefault()
-        setPokeList(pokemons)
+        setPokeList(allPokemons)
+        setMaxEntry(12)
     }
 
     return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import TypeFilter from "./Filters/TypeFilter"
 
-export default function FilterSlideOver({showOverlay, toggleFilterOverlay, setPokeList}) {
+export default function FilterSlideOver({showOverlay, toggleFilterOverlay, setPokeList, pokeList, allPokemons, setMaxEntry}) {
 
     return (
         <div className={`fixed inset-0 overflow-hidden ${showOverlay}`}  id="filterOverlay">
@@ -22,7 +22,7 @@ export default function FilterSlideOver({showOverlay, toggleFilterOverlay, setPo
                                         </button>
                                     </div>
                                 </div>
-                                <TypeFilter setPokeList={setPokeList} />
+                                <TypeFilter setPokeList={setPokeList} pokeList={pokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
                             </div>
                         </div>
                     </div>

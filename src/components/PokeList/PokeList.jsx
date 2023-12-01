@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import FilterSlideOver from './FilterSlideOver'
-import { pokemons } from '../utils/pokemons'
+import { pokemons } from '../../utils/pokemons'
 
 export default function PokeList() {
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { pokemons } from '../../utils/pokemons'
+import { pokemons } from '../../../utils/pokemons'
 
 export default function TypFilter({ setPokeList }) {
 

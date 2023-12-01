@@ -1,10 +1,9 @@
-import { useState } from 'react'
 import './App.css'
 import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Root from './components/root'
-import PokeList from './components/PokeList'
-import PokeDetail from './components/PokeDetail'
-import PokeInfo from './components/PokeInfo'
+import PokeList from './components/PokeList/PokeList'
+import PokeDetail from './components/PokeList/PokeDetail'
+import PokeInfo from './components/PokeList/PokeInfo'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Root />}>

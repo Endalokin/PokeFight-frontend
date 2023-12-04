@@ -10,12 +10,12 @@ export default function TypFilter({ setPokeList, pokeList, allPokemons, setMaxEn
         setPokeList(pokeList.filter(p => {
             return p.type[0] == e.target.id
         }))
-        setMaxEntry(12)
+        setMaxEntry(15)
     }
     function clearFilters(e) {
         e.preventDefault()
         setPokeList(allPokemons)
-        setMaxEntry(12)
+        setMaxEntry(15)
     }
 
     return (

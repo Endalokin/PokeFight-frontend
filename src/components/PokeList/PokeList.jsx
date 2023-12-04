@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import FilterSlideOver from './FilterSlideOver'
 import fetchData from '../../utils/fetchApi'
+import StartBattle from './StartBattle'
+import Pager from './Pager'
 
 export default function PokeList() {
 
@@ -20,41 +22,32 @@ export default function PokeList() {
     }
 
     useEffect(() => {
-        fetchData("http://localhost:8080/pokemon/", addPokeFromApi)
+        fetchData("https://pokefightapi.onrender.com/pokemon", addPokeFromApi)
     }, [])
 
-
-    const [maxEntry, setMaxEntry] = useState(12)
-    function showNext(e) {
-        e.preventDefault()
-        setMaxEntry(maxEntry + 12)
-    }
-
-    function showPrev(e) {
-        e.preventDefault()
-        setMaxEntry(maxEntry - 12)
-
-    }
+    const [maxEntry, setMaxEntry] = useState(15)
 
     return (
         <>
-            <div>PokeList</div>
             <FilterSlideOver showOverlay={showOverlay} toggleFilterOverlay={toggleFilterOverlay} setPokeList={setPokeList} pokeList={pokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
             <div className="grid grid-cols-3">
                 <div className="container col-span-2 bg-red-600">
-                    <p>Returns all the pokemon names in a list and includes a link to the detailed view  </p>
-                    <button onClick={toggleFilterOverlay}>Open Filter</button>
-                    <div className="grid grid-cols-4">
-                        {pokeList.filter((d) => pokeList.indexOf(d) < maxEntry && pokeList.indexOf(d) >= maxEntry - 12).map(p => {
-                            return <Link to={`pokemon/${p.name.english}`} style={{ color: 'lightgrey' }} ><div id={p.name.english}>{p.name.english}</div></Link>
+                    <button onClick={toggleFilterOverlay} className='border-2 border-orange-200 rounded-r-full mx-auto my-2 p-2 text-orange-200'>Open Filter</button>
+                    <div className="grid grid-cols-5">
+                        {pokeList.filter((d) => pokeList.indexOf(d) < maxEntry && pokeList.indexOf(d) >= maxEntry - 15).map(p => {
+                            p.img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.id}.png`
+                            return <Link to={`pokemon/${p.id}`} ><img src={p.img} id={p.name.english} alt={p.name.english} /></Link>
                         })}
                     </div>
                     {/* auslagern in Komponente: */}
-                    <button onClick={showPrev}>{`<<`}</button>
-                    <button onClick={showNext}>{`>>`}</button>
+                    <div className="flex justify-between">
+                    <Pager direction="prev" maxEntry={maxEntry} setMaxEntry={setMaxEntry} />
+                    <Pager direction="next" maxEntry={maxEntry} setMaxEntry={setMaxEntry} />
+                    </div>
                 </div>
                 <div className="container col-span-1 bg-orange-200"><Outlet /></div>
             </div>
+            <StartBattle />
 
         </>
     )

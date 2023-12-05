@@ -12,7 +12,7 @@ const initialDefenderState = { name: 'Computer', attack: 8, defense: 8, health: 
 
 
 
-const BattleComponent = () => {
+const BattleComponent = ({computerStats, playerStats}) => {
   const [attacker, setAttacker] = useState({ ...initialAttackerState, points: 0 });
   const [defender, setDefender] = useState({ ...initialDefenderState, points: 0 });
   const [battleLog, setBattleLog] = useState([]);

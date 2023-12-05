@@ -1,21 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
-const ComputerPokemon = ({pokemon}) => {
+const ComputerPokemon = ({ pokemonId, onStatsChange, computerStats, setComputerStats }) => {
 
-    const HP = 150
-    const angriff = 100
-    const verteidigung = 50
 
-    if(pokemon === null) return 
-    const name = pokemon.name
-    const image = pokemon.sprites.other.dream_world.front_default
+  useEffect(() => {
+    const fetchComputerStats = async () => {
+      try {
+        const response = await fetch(`https://pokefightapi.onrender.com/pokemon/${pokemonId}`);
+        const data = await response.json();
+
+
+        const { Attack, Defense, HP } = data.base;
+        const stats = { Attack, Defense, HP };
+
+        setComputerStats(stats);
+        onStatsChange(stats);
+
+      } catch (error) {
+        console.error('Error fetching Pokemon stats:', error);
+      }
+    };
+
+    fetchComputerStats();
+  }, [pokemonId, onStatsChange]);
+
+  if (!computerStats) {
+    return <p>Loading Computer stats...</p>;
+  }
+
   return (
     <div>
-        <img src={image} alt="Pokemon2" width="200px" />
-        <p>{name}</p>
-        <p>{HP}</p>
+      <img
+        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}
+        alt={`Pokemon with ID ${pokemonId}`}
+        style={{ display: 'inline' }}
+      />
+      <p>Attack: {computerStats.Attack}</p>
+      <p>Defense: {computerStats.Defense}</p>
+      <p>Health: {computerStats.HP}</p>
     </div>
-  )
-}
+  );
+};
 
-export default ComputerPokemon
+export default ComputerPokemon;

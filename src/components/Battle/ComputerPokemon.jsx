@@ -9,12 +9,13 @@ const ComputerPokemon = ({ pokemonId, onStatsChange, computerStats, setComputerS
         const response = await fetch(`https://pokefightapi.onrender.com/pokemon/${pokemonId}`);
         const data = await response.json();
 
+        console.log(data)
 
         const { Attack, Defense, HP } = data.base;
         const stats = { Attack, Defense, HP };
+        console.log(stats)
 
         setComputerStats(stats);
-        onStatsChange(stats);
 
       } catch (error) {
         console.error('Error fetching Pokemon stats:', error);

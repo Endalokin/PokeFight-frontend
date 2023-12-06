@@ -13,10 +13,17 @@ const initialDefenderState = { name: 'Computer', attack: 8, defense: 8, health: 
 
 
 const BattleComponent = ({computerStats, playerStats}) => {
-  const [attacker, setAttacker] = useState({ ...initialAttackerState, points: 0 });
-  const [defender, setDefender] = useState({ ...initialDefenderState, points: 0 });
+ 
+  const [attacker, setAttacker] = useState();
+  const [defender, setDefender] = useState();
   const [battleLog, setBattleLog] = useState([]);
   const [battleInProgress, setBattleInProgress] = useState(true);
+  
+  if(computerStats != null && playerStats != null){
+    setDefender(computerStats)
+    setAttacker(playerStats)
+  }
+  console.log("computer-fightlogic", attacker)
 
   useEffect(() => {
     const startBattle = () => {
@@ -66,14 +73,14 @@ const BattleComponent = ({computerStats, playerStats}) => {
 
   return (
     <div>
-      <h2>{`${attacker.name} vs. ${defender.name}`}</h2>
+      <h2>{`${attacker?.name} vs. ${defender?.name}`}</h2>
       <p>
-        {`${attacker.name} Gesundheit: ${attacker.health || 0}, Punkte: ${attacker.points}`}
-        <ProgressBar value={attacker.health} max={initialAttackerState.health} />
+        {`${attacker?.name} Gesundheit: ${attacker?.health || 0}, Punkte: ${attacker?.points}`}
+        <ProgressBar value={attacker?.health} max={initialAttackerState?.health} />
       </p>
       <p>
-        {`${defender.name} Gesundheit: ${defender.health || 0}, Punkte: ${defender.points}`}
-        <ProgressBar value={defender.health} max={initialDefenderState.health} />
+        {`${defender?.name} Gesundheit: ${defender?.health || 0}, Punkte: ${defender?.points}`}
+        <ProgressBar value={defender?.health} max={initialDefenderState?.health} />
       </p>
       {!battleInProgress && (
         <div>

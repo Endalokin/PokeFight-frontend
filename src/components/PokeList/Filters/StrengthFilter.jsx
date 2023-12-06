@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function StrengthFilter({ setPokeList, pokeList, allPokemons, setMaxEntry }) {
+export default function StrengthFilter({ setPokeList, allPokemons, setMaxEntry }) {
 
   const maxHp = 190
   const [hpValue, setHpValue] = useState(maxHp)
@@ -20,7 +20,7 @@ export default function StrengthFilter({ setPokeList, pokeList, allPokemons, set
   return (
     <div className="slidecontainer">
       <h3 className="m-4">HP</h3>
-      <input type="range" min="1" max="maxHp" value={hpValue} className="slider my-6" id="myRange" onChange={handleChange} />
+      <input type="range" min="1" max={maxHp} value={hpValue} className="slider my-6" id="myRange" onChange={handleChange} />
     </div>
   )
 }

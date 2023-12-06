@@ -3,7 +3,7 @@
     src: url(./assets/PokemonSolidNormal-xyWR.ttf);
 }
 
-h1, h2, h3, button.border-rose-500 {
+h1, h2, h3, th, button.border-rose-500 {
     font-family: pokeFont;
 }
 

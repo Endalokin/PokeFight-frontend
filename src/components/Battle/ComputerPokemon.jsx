@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const ComputerPokemon = ({ pokemonId, onStatsChange, computerStats, setComputerStats }) => {
+const ComputerPokemon = ({ pokemonId, computerStats, setComputerStats }) => {
 
 
   useEffect(() => {
@@ -9,7 +9,7 @@ const ComputerPokemon = ({ pokemonId, onStatsChange, computerStats, setComputerS
         const response = await fetch(`https://pokefightapi.onrender.com/pokemon/${pokemonId}`);
         const data = await response.json();
 
-        console.log(data)
+        console.log("sel pokemon",data)
 
         const { Attack, Defense, HP } = data.base;
         const stats = { Attack, Defense, HP };
@@ -23,7 +23,7 @@ const ComputerPokemon = ({ pokemonId, onStatsChange, computerStats, setComputerS
     };
 
     fetchComputerStats();
-  }, [pokemonId, onStatsChange]);
+  }, [pokemonId]);
 
   if (!computerStats) {
     return <p>Loading Computer stats...</p>;

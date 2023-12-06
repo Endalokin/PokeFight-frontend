@@ -7,8 +7,10 @@ import PlayerPokemon from './PlayerPokemon';
 
 const Battle = () => {
   const [pokemonId, setPokemonId] = useState(null);
-  const [playerStats, setPlayerStats] = useState(null);
-  const [computerStats, setComputerStats] = useState(null);
+  const [playerStats, setPlayerStats] = useState();
+  const [computerStats, setComputerStats] = useState();
+
+  console.log("player", playerStats, "computer", computerStats)
 
   useEffect(() => {
     generateRandomPokemon();

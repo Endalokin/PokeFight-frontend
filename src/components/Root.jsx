@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { createContext, useState } from 'react'
-import StartBattle from './PokeList/StartBattle'
+import Header from './Header/Header'
 
 export const WholeContext = createContext()
 
@@ -10,10 +10,11 @@ export default function Root() {
     const [equippedPoke, setEquippedPoke] = useState("150")
 
     return (
-        <WholeContext.Provider value = {{equippedPoke, setEquippedPoke}}>
-            <header><h1 className="text-4xl m-6">PokeFight</h1></header>
+        <WholeContext.Provider value={{ equippedPoke, setEquippedPoke }}>
+            
             <main >
-                <Outlet /> 
+                <Header />
+                <Outlet />
             </main>
         </WholeContext.Provider>
     )

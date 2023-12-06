@@ -6,6 +6,7 @@ import PokeDetail from './components/PokeList/PokeDetail'
 import PokeInfo from './components/PokeList/PokeInfo'
 import Battle from "./components/Battle/Battle"
 import "tailwindcss/tailwind.css"
+import Leaderboard from './components/Leaderboard/Leaderboard'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Root />}>
@@ -14,8 +15,9 @@ const router = createBrowserRouter(createRoutesFromElements(
     </Route>
     <Route path="/pokemon/:id/:info" element={<PokeInfo />} />
     <Route path="/battle" element={<Battle />} />
+    <Route path="/leaderboard" element={<Leaderboard />} />
   </Route>
-  
+
 ))
 
 

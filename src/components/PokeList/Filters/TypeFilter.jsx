@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import fetchData from '../../../utils/fetchApi'
 
 export default function TypFilter({ setPokeList, pokeList, allPokemons, setMaxEntry }) {
 
-    const pokeTypes = [
+    const [pokeTypes, setPokeTypes] = useState([
         "Bug",
         "Electric",
         "Fire",
@@ -11,8 +12,8 @@ export default function TypFilter({ setPokeList, pokeList, allPokemons, setMaxEn
         "Normal",
         "Poison",
         "Water"
-
-    ]
+    ])
+    
     function filterPokemons(e) {
         setPokeList(allPokemons)
         setPokeList((prev) => prev.filter(p => {
@@ -20,21 +21,23 @@ export default function TypFilter({ setPokeList, pokeList, allPokemons, setMaxEn
         }))
         setMaxEntry(15)
     }
-    function clearFilters(e) {
-        e.preventDefault()
-        setPokeList(allPokemons)
-        setMaxEntry(15)
+
+    function addTypesFromApi(data) {
+        setPokeTypes(data.types)
     }
+
+    useEffect(() => {
+        fetchData("https://pokefightapi.onrender.com/types", addTypesFromApi)
+    }, [])
 
     return (
         <>
-            <div>Pokemon-Types</div>
+            <h3 className="m-4">Types</h3>
             <div>
                 {pokeTypes.map(p => {
                     return <button className='border-2 border-orange-200 rounded-full m-2 my-2 p-2 self-start' id={p} onClick={filterPokemons}>{p}</button>
                 })}
             </div>
-            <button onClick={clearFilters} className="border-2 border-rose-500 rounded-full my-2 py-2 px-4" style={{ display: "block" }}>Clear Filter</button>
         </>
     )
 }

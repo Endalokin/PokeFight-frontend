@@ -1,5 +1,7 @@
 import React from 'react'
 import TypeFilter from "./Filters/TypeFilter"
+import StrengthFilter from './Filters/StrengthFilter'
+import ClearAllFilters from './Filters/ClearAllFilters'
 
 export default function FilterSlideOver({showOverlay, toggleFilterOverlay, setPokeList, pokeList, allPokemons, setMaxEntry}) {
 
@@ -11,7 +13,7 @@ export default function FilterSlideOver({showOverlay, toggleFilterOverlay, setPo
                         <div className="flex h-full flex-col bg-white shadow-xl">
                             <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                 <div className="flex items-start justify-between">
-                                    <h2 className="text-lg font-medium text-gray-900" id="slide-over-title">Filter</h2>
+                                    <h2 className="text-xl font-medium text-gray-900 m-4" id="slide-over-title">Filter</h2>
                                     <div className="ml-3 flex h-7 items-center">
                                         <button type="button" className="relative -m-2 p-2 text-gray-400 hover:text-gray-500" onClick={toggleFilterOverlay}>
                                             <span className="absolute -inset-0.5"></span>
@@ -23,6 +25,8 @@ export default function FilterSlideOver({showOverlay, toggleFilterOverlay, setPo
                                     </div>
                                 </div>
                                 <TypeFilter setPokeList={setPokeList} pokeList={pokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
+                                <StrengthFilter setPokeList={setPokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
+                                <ClearAllFilters setPokeList={setPokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
                             </div>
                         </div>
                     </div>

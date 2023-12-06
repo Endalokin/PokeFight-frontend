@@ -11,7 +11,7 @@ export default function Root() {
 
     return (
         <WholeContext.Provider value = {{equippedPoke, setEquippedPoke}}>
-            <header><h1>PokeFight</h1></header>
+            <header><h1 className="text-4xl m-6">PokeFight</h1></header>
             <main >
                 <Outlet /> 
             </main>

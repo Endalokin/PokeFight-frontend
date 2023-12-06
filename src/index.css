@@ -1,0 +1,43 @@
+@font-face {
+    font-family: pokeFont;
+    src: url(./assets/PokemonSolidNormal-xyWR.ttf);
+}
+
+h1, h2, h3, button.border-rose-500 {
+    font-family: pokeFont;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    box-shadow: 120px 80px 40px 20px red;
+/*     background: #04AA6D; */
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    color: red;
+    background-color: red;
+    border-color: red;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px 20px red;
+/*     background: #04AA6D; */
+    cursor: pointer;
+  }

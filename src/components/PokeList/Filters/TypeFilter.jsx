@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import fetchData from '../../../utils/fetchApi'
+import fetchData from '../../../utils/fetchAPI'
 
 export default function TypFilter({ setPokeList, allPokemons, setMaxEntry }) {
 

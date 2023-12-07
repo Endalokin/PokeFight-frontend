@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const ComputerPokemon = ({ pokemonId, computerStats, setComputerStats }) => {
-const [computerName, setComputerName] = useState("")
+  const [computerName, setComputerName] = useState("");
 
   useEffect(() => {
     const fetchComputerStats = async () => {
       try {
-        const response = await fetch(`https://pokefightapi.onrender.com/pokemon/${pokemonId}`);
+        const response = await fetch(
+          `https://pokefightapi.onrender.com/pokemon/${pokemonId}`
+        );
         const data = await response.json();
 
         const { Attack, Defense, HP } = data.base;
@@ -14,10 +16,9 @@ const [computerName, setComputerName] = useState("")
         const stats = { Attack, Defense, HP };
 
         setComputerStats(stats);
-        setComputerName(computerName)
-
+        setComputerName(computerName);
       } catch (error) {
-        console.error('Error fetching Pokemon stats:', error);
+        console.error("Error fetching Pokemon stats:", error);
       }
     };
 
@@ -30,15 +31,25 @@ const [computerName, setComputerName] = useState("")
 
   return (
     <div>
+      <div className="text-4xl">
+        <h1>{computerName}</h1>
+      </div>
       <img
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}
         alt={`Pokemon with ID ${pokemonId}`}
-        style={{ display: 'inline' }}
+        style={{ display: "inline" }}
       />
-      <h1>{computerName}</h1>
-      <p>Attack: {computerStats.Attack}</p>
-      <p>Defense: {computerStats.Defense}</p>
-      <p>Health: {computerStats.HP}</p>
+
+      <p className="font-medium text-2xl">
+        Attack: <span>{computerStats.Attack}</span>
+      </p>
+      <p className="font-medium text-2xl">
+        Defense: <span>{computerStats.Defense}</span>
+      </p>
+      <p className="font-medium text-2xl">
+        Health: <span>{computerStats.HP}</span>
+      </p>
+      <br />
     </div>
   );
 };

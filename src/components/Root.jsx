@@ -7,7 +7,7 @@ export const WholeContext = createContext()
 
 export default function Root() {
 
-    const [equippedPoke, setEquippedPoke] = useState("150")
+    const [equippedPoke, setEquippedPoke] = useState("1")
 
     return (
         <WholeContext.Provider value={{ equippedPoke, setEquippedPoke }}>

@@ -7,11 +7,11 @@ import PlayerPokemon from './PlayerPokemon';
 import { randomNumberInRange } from '../../utils/pokeHandler';
 
 const Battle = () => {
-  const [pokemonId, setPokemonId] = useState(3);
+  const [pokemonId, setPokemonId] = useState();
   const [playerStats, setPlayerStats] = useState();
   const [computerStats, setComputerStats] = useState();
   const [nextFight, setNextFight]=useState(false)
-  const [battleStart, setBattleStart]=useState(false)
+  const [key, setKey] = useState(0);
 
   console.log("player", playerStats, "computer", computerStats)
 
@@ -24,6 +24,7 @@ const Battle = () => {
  
  const handleNextFight = () => {
     setNextFight(!nextFight)
+    setKey(key + 1);
     console.log('Next Fight button clicked');
   }; 
  
@@ -35,7 +36,7 @@ const Battle = () => {
     minWidth: '150vh',
   };
 
-  console.log('Rendered with Pokemon ID:', pokemonId);
+
 
   return (
     <div style={backgroundStyle}>
@@ -49,8 +50,7 @@ const Battle = () => {
             </div>
             </div>
         </div>
-        <button onClick={()=>setBattleStart(true)}>Start Battle</button>
-      {computerStats != null && playerStats != null ? <BattleComponent playerStats={playerStats} computerStats={computerStats}/>: <div>Battle preperation...</div>} 
+      {computerStats != null && playerStats != null ? <BattleComponent key={key} playerStats={playerStats} computerStats={computerStats}/>: <div>Battle preperation...</div>} 
       {/*<button onClick={handleNextFight}>Start</button>*/}
       <br />      
       <div className="grid grid-cols-4 gap-4">

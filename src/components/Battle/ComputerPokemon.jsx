@@ -41,13 +41,13 @@ const ComputerPokemon = ({ pokemonId, computerStats, setComputerStats }) => {
       />
 
       <p className="font-medium text-2xl">
-        Attack: <span className="font-light ">{computerStats.Attack}</span>
+        Attack: <span>{computerStats.Attack}</span>
       </p>
       <p className="font-medium text-2xl">
-        Defense: <span className="font-light ">{computerStats.Defense}</span>
+        Defense: <span>{computerStats.Defense}</span>
       </p>
       <p className="font-medium text-2xl">
-        Health: <span className="font-light ">{computerStats.HP}</span>
+        Health: <span>{computerStats.HP}</span>
       </p>
       <br />
     </div>

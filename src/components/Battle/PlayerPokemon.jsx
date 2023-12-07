@@ -48,13 +48,13 @@ const PlayerPokemon = ({ playerStats, setPlayerStats }) => {
       />
 
       <p className="font-medium text-2xl">
-        Attack: <span className="font-light ">{playerStats.Attack}</span>
+        Attack: <span>{playerStats.Attack}</span>
       </p>
       <p className="font-medium text-2xl">
-        Defense: <span className="font-light">{playerStats.Defense}</span>
+        Defense: <span>{playerStats.Defense}</span>
       </p>
       <p className="font-medium text-2xl">
-        Health: <span className="font-light">{playerStats.HP}</span>
+        Health: <span>{playerStats.HP}</span>
       </p>
       <br />
     </div>

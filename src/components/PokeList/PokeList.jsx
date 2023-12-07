@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import FilterSlideOver from './FilterSlideOver'
-import fetchData from '../../utils/fetchApi'
+import fetchData from '../../utils/fetchAPI'
 import StartBattle from './StartBattle'
 import Pager from './Pager'
 import Searchbar from './Filters/Searchbar'

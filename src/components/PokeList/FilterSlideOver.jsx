@@ -24,7 +24,7 @@ export default function FilterSlideOver({showOverlay, toggleFilterOverlay, setPo
                                         </button>
                                     </div>
                                 </div>
-                                <TypeFilter setPokeList={setPokeList} pokeList={pokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
+                                <TypeFilter setPokeList={setPokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
                                 <StrengthFilter setPokeList={setPokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
                                 <ClearAllFilters setPokeList={setPokeList} allPokemons={allPokemons} setMaxEntry={setMaxEntry} />
                             </div>

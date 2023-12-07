@@ -1,8 +1,9 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useContext } from "react";
-import { WholeContext } from "../root";
+import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { useContext } from 'react'
+import { WholeContext } from '../Root'
+
 
 const PlayerPokemon = ({ playerStats, setPlayerStats }) => {
   const [playerName, setPlayerName] = useState("");

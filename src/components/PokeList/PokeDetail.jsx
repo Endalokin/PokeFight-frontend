@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import fetchData from '../../utils/fetchApi'
-import { WholeContext } from '../root'
+import { WholeContext } from '../Root'
 
 export default function PokeDetail({ detailPokemon }) {
 

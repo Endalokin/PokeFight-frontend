@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import fetchData from '../../../utils/fetchApi'
 
-export default function TypFilter({ setPokeList, pokeList, allPokemons, setMaxEntry }) {
+export default function TypFilter({ setPokeList, allPokemons, setMaxEntry }) {
 
     const [pokeTypes, setPokeTypes] = useState([
         "Bug",

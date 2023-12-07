@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
-import { WholeContext } from '../root'
-import { Outlet, Link } from 'react-router-dom'
+import { WholeContext } from '../Root'
+import { Link } from 'react-router-dom'
 
 export default function StartBattle() {
   const { equippedPoke } = useContext(WholeContext)

@@ -1,14 +1,15 @@
 import React from 'react'
 
 export default function TableRow({ participant }) {
-    const { id, name, won, lost } = participant
+    const { pokeID, name, wins, loses, score } = participant
+    
     return (
         <tr>
             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <div className="flex items-center">
                     <div className="flex-shrink-0 w-10 h-10">
                         <img className="w-full h-full rounded-full"
-                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeID}.png`}
                             alt="" />
                     </div>
                     <div className="ml-3">
@@ -19,25 +20,17 @@ export default function TableRow({ participant }) {
                 </div>
             </td>
             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p className="text-gray-900 whitespace-no-wrap">Admin</p>
+                <p className="text-gray-900 whitespace-no-wrap">{score}</p>
             </td>
             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p className="text-gray-900 whitespace-no-wrap">
-                    {lost}
+                    {loses}
                 </p>
             </td>
             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p className="text-gray-900 whitespace-no-wrap">
-                    {won}
+                    {wins}
                 </p>
-            </td>
-            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <span
-                    className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                    <span aria-hidden
-                        className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                    <span className="relative">Activo</span>
-                </span>
             </td>
         </tr>
     )

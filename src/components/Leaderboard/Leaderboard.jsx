@@ -59,7 +59,7 @@ export default function Leaderboard() {
                         <table className="min-w-full leading-normal">
                             <TableHead />
                             <tbody>
-                                <TableRow participant={player[0]} />
+                                {player.map(p => <TableRow participant={p} />)}
                             </tbody>
                         </table>
                     </div>
